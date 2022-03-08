@@ -20,7 +20,7 @@ public class BackgroundLoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x <= width)
+        if(transform.position.x <= -width)
         {
             Reposition();
         }
