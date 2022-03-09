@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public bool isGameover = false;
-    public TextAlignment scoreText;
+    public Text scoreText;
     public GameObject gameoverUI;
 
     private int score = 0;
@@ -38,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameover)
         {
-            score = newScore;
+            score += newScore;
             scoreText.text = "Score :" + score;
         }
     }
