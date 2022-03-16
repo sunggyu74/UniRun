@@ -38,6 +38,12 @@ public class PlayerController : MonoBehaviour
         {
             playerRigidbody.velocity = playerRigidbody.velocity * 0.5f;
         }
+        else if (!Input.GetMouseButtonUp(0) && playerRigidbody.velocity.y < 0)
+        {
+            playerRigidbody.velocity = playerRigidbody.velocity * 1.015f;
+        }
+
+
         animator.SetBool("Grounded", isGrounded);
     }
 
@@ -58,6 +64,12 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Dead" && !isDead)
         {
             Die();
+        }
+        else if(collision.tag == "Spark" && !isDead)
+        {
+            if (GameManager.instance.Crash() == true) Die(); //GameManager.instance.Crash()접근
+                                                             //비교 True면 Die()실행
+
         }
     }
 
